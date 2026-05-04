@@ -71,6 +71,6 @@ public class Avion {
     private Double capacidad_combustible;
 
     //@OneToMany(mappedBy = "avion")  // Esto debo hablarlo con el profe
-    //private List<Vuelo> vuelos asd asdasdsa;
+    //private List<Vuelo> vuelos asd asdasdsa 2;
     
 }
