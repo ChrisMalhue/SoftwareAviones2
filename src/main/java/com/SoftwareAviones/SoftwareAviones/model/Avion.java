@@ -7,7 +7,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -70,7 +69,9 @@ public class Avion {
     @Column(nullable = false)
     private Double capacidad_combustible;
 
-    //@OneToMany(mappedBy = "avion")  // Esto debo hablarlo con el profe
-    //private List<Vuelo> vuelos asd asdasdsa 2;
+    @OneToMany(mappedBy = "avion")
+    private List<Aviones> listaAviones;
+
+
     
 }
