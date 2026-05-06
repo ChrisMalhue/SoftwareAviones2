@@ -10,19 +10,19 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "cursos")
-public class Cursos {
+@Table(name = "aviones")
+public class Aviones {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer ID_cursos;
+    private Integer ID_aviones;
 
     @ManyToOne
     @JoinColumn(name = "ID_piloto")
     private Piloto piloto;
 
     @ManyToOne
-    @JoinColumn(name = "ID_curso")
-    private Curso curso;
+    @JoinColumn(name = "ID_avion")
+    private Avion avion;
 
 }

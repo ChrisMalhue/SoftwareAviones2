@@ -1,6 +1,7 @@
 package com.SoftwareAviones.SoftwareAviones.model;
 
 import java.util.Date;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 import jakarta.validation.constraints.Min;
@@ -61,9 +63,11 @@ public class Piloto {
     @Column(nullable = false)
     private Integer horas_vuelo;
 
-    @ManyToOne
-    @JoinColumn(name = "ID_avion")
-    private Avion avion;
+    @OneToMany(mappedBy = "piloto")
+    private List<Cursos> cursosAprendidos;
+
+    @OneToMany(mappedBy = "piloto")
+    private List<Aviones> avionesVolados;
 
 
 
