@@ -24,7 +24,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "curso")
+@Table(name = "cursos")
 public class Curso {
 
     @Id
@@ -37,6 +37,6 @@ public class Curso {
     private String nombre_curso;
 
     @OneToMany(mappedBy = "curso")
-    private List<Cursos> cursosHechos;
+    private List<Cursos> pilotosCurso;
 
 }
