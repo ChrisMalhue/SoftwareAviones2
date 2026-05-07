@@ -54,7 +54,7 @@ public class Piloto {
     @NotNull(message = "La fecha de nacimiento es obligatoria")
     @Past(message = "La fecha de nacimiento debe ser en el pasado")
     @Column(nullable = false)
-    private Date Fecha_nacimiento;
+    private Date fecha_nacimiento;
 
     @NotNull(message = "Las horas de vuelo son obligatorias")
     @Min(value = 0, message = "Las horas de vuelo no pueden ser negativas")

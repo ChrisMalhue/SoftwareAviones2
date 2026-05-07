@@ -64,5 +64,6 @@ public class Vuelo {
     @ManyToOne
     @JoinColumn(name = "ID_aerodromo", nullable = false)
     private Aerodromo aerodromo;
+    
 }
 

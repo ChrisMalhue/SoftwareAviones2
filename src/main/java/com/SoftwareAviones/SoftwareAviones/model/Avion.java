@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -26,7 +28,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "aviones")
+@Table(name = "avion")
 public class Avion {
 
     @Id
@@ -69,8 +71,23 @@ public class Avion {
     @Column(nullable = false)
     private Double capacidad_combustible;
 
+    @ManyToOne
+    @JoinColumn(name = "ID_fabricante")
+    private Fabricante fabricante;
+
+    @ManyToOne
+    @JoinColumn(name = "ID_tipo")
+    private Tipo tipo;
+
+    @ManyToOne
+    @JoinColumn(name = "ID_origen")
+    private Origen origen;
+
     @OneToMany(mappedBy = "avion")
-    private List<Aviones> listaAviones;
+    private List<Aviones> pilotosAvion;
+
+    @OneToMany(mappedBy = "avion")
+    private List<Vuelo> vuelos;
 
 
     
