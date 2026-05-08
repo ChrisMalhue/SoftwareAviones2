@@ -32,11 +32,6 @@ public class Origen {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_origen;
 
-    @NotBlank(message = "es obligatorio especificar la marca")
-    @Size(min = 5, max = 15, message = "la marca debe tener de 5 a 15 caracteres")
-    @Column(nullable = false, unique = true, length = 15)
-    private String marca;
-
     @NotBlank(message = "El pais de origen es obligatorio")
     @Size(min = 3, max = 15, message = "pais de origen debe tener de 3 a 15 caracteres")
     @Column(nullable = false, unique = true, length = 15)

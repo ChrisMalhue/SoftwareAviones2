@@ -53,13 +53,13 @@ public class Avion {
     @Column(nullable = false, length = 50)
     private String modelo;
 
-    @Min(value = 0, message = "La capacidad de pasajeros no puede ser negativa")
-    @Column(nullable = true)
     private Integer capacidad_pasajero;
 
-    @Min(value = 0, message = "La capacidad de carga no puede ser negativa")
-    @Column(nullable = true)
     private Double capacidad_carga_kg;
+
+    private Double alcance_km;
+
+    private Integer cantidad_asientos_vip;
 
     @NotNull(message = "La envergadura es obligatoria")
     @Min(value = 0, message = "La envergadura no puede ser negativa")
