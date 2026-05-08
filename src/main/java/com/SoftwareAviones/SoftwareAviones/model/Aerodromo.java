@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "aerodromo")
+@Table(name = "aerodromos")
 public class Aerodromo {
 
     @Id

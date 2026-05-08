@@ -11,7 +11,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-
+import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -28,7 +28,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "avion")
+@Table(name = "aviones")
 public class Avion {
 
     @Id
@@ -53,34 +53,38 @@ public class Avion {
     @Column(nullable = false, length = 50)
     private String modelo;
 
+    @ManyToOne
+    @JoinColumn(name = "ID_tipo", nullable = false)
+    private Tipo tipo;
+
+    @Min(value = 1, message = "La capacidad de pasajeros debe ser mayor a 0")
     private Integer capacidad_pasajero;
 
+    @DecimalMin(value = "0.0", message = "La capacidad de carga no puede ser negativa")
     private Double capacidad_carga_kg;
 
+    @DecimalMin(value = "0.0", message = "El alcance no puede ser negativo")
     private Double alcance_km;
 
+    @Min(value = 1, message = "La cantidad de asientos VIP debe ser mayor a 0")
     private Integer cantidad_asientos_vip;
 
     @NotNull(message = "La envergadura es obligatoria")
-    @Min(value = 0, message = "La envergadura no puede ser negativa")
+    @DecimalMin(value = "0.0", message = "La envergadura no puede ser negativa")
     @Column(nullable = false)
     private Double envergadura_metros;
 
     @NotNull(message = "La capacidad de combustible es obligatoria")
-    @Min(value = 0, message = "La capacidad de combustible no puede ser negativa")
+    @DecimalMin(value = "0.0", message = "La capacidad de combustible no puede ser negativa")
     @Column(nullable = false)
     private Double capacidad_combustible;
 
     @ManyToOne
-    @JoinColumn(name = "ID_fabricante")
+    @JoinColumn(name = "ID_fabricante", nullable = false)
     private Fabricante fabricante;
 
     @ManyToOne
-    @JoinColumn(name = "ID_tipo")
-    private Tipo tipo;
-
-    @ManyToOne
-    @JoinColumn(name = "ID_origen")
+    @JoinColumn(name = "ID_origen", nullable = false)
     private Origen origen;
 
     @OneToMany(mappedBy = "avion")
