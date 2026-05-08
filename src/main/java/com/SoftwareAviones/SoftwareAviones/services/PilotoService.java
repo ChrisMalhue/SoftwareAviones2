@@ -79,4 +79,17 @@ public class PilotoService {
         dto.setAvionesVolados(nombresAviones);
         return dto;
     }
+
+    public List<PilotoDTO> buscarPorNombre(String nombre){
+        return pilotoRepository.buscarPorNombre(nombre).stream()
+                .map(this::convertirADTO)
+                .toList();
+    }
+
+    public List<PilotoDTO> buscarPilotosConHorasMinimas(Integer horasMinimas){
+        return pilotoRepository.buscarPilotosConHorasMinimas(horasMinimas).stream()
+                .map(this::convertirADTO)
+                .toList();
+    }
+    
 }
