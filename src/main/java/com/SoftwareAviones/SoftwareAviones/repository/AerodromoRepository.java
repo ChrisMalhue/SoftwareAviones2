@@ -8,6 +8,8 @@ import com.SoftwareAviones.SoftwareAviones.model.Aerodromo;
 @Repository
 public interface AerodromoRepository extends JpaRepository<Aerodromo, Integer> {
 
+    
+
 }
 
 //jpa sirve para conectar la base de dtaos con la clase 
