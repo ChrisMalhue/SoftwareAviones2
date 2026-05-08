@@ -8,7 +8,7 @@ import lombok.Data;
 public class TipoDTO {
 
     private Integer id_tipo;
-    private String tipo_avion;
+    private String tipo;
     private List<String> aviones;
     
 }
