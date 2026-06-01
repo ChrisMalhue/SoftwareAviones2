@@ -1,0 +1,14 @@
+package com.SoftweareAviones.SoftweareAviones.DTO;
+
+import java.util.List;
+
+import lombok.Data;
+
+@Data
+public class OrigenDTO {
+
+    private Integer id_origen;
+    private String pais_origen;
+    private List<String> aviones;
+
+}
